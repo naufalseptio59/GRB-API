@@ -154,3 +154,27 @@ exports.deleteWishlist = async (req, res) => {
         res.status(500).json({ error: error.message });
     }
 };
+
+exports.getWishlistByCustomer = async (req, res) => {
+    try {
+        const result = await pool.query('SELECT * FROM wishlist WHERE customername = $1', [req.params.customername]);
+        if (result.rowCount === 0) {
+            return res.status(404).json({ error: 'Customer not found' });
+        }
+        res.status(200).json(result.rows[0]);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};
+
+exports.getWishlistByBook = async (req, res) => {
+    try {
+        const result = await pool.query('SELECT * FROM wishlist WHERE booktitle = $1', [req.params.booktitle]);
+        if (result.rowCount === 0) {
+            return res.status(404).json({ error: 'Book not found' });
+        }
+        res.status(200).json(result.rows[0]);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};

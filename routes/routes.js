@@ -11,9 +11,11 @@ router.get('/book/title/:booktitle', controller.getBooksByTitle);
 router.get('/book/author/:authorname', controller.getBooksByAuthor);
 router.get('/book/language/:booklanguage', controller.getBooksByLanguage);
 router.get('/wishlist', controller.getAllWishlists);
-router.get('/wishlist/:wishlistid', controller.getWishlistById);
+router.get('/wishlist/id/:wishlistid', controller.getWishlistById);
 router.post('/wishlist', controller.createWishlist);
 router.put('/wishlist/:wishlistid', controller.updateWishlist);
 router.delete('/wishlist/:wishlistid', controller.deleteWishlist);
+router.get('/wishlist/customer/:customername', controller.getWishlistByCustomer);
+router.get('/wishlist/book/:booktitle', controller.getWishlistByBook);
 
 module.exports = router;
