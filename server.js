@@ -1,14 +1,14 @@
 const express = require('express');
 const app = express();
-const routes = require('./routes/routes');
+const route = require('./routes/route');
 
 app.use(express.json());
-app.use('/api', routes);
+app.use('/api', route);
 
 const PORT = process.env.PORT || 5000;
 
 app.get('/', (req, res) => {
-    res.send('Welcome to the Book API');
+    res.send('Welcome to Good Reading Bookstore');
 });
 
 app.listen(PORT, () => {
