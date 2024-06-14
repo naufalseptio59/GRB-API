@@ -62,7 +62,7 @@ exports.deleteBook = async (req, res) => {
     }
 };
 
-exports.getBooksByTitle = async (req, res) => {
+exports.getBookByTitle = async (req, res) => {
     try {
         const { booktitle } = req.query;
         const result = await pool.query('SELECT * FROM book WHERE booktitle = $1', [req.params.booktitle]);
@@ -75,7 +75,7 @@ exports.getBooksByTitle = async (req, res) => {
     }
 };
 
-exports.getBooksByAuthor = async (req, res) => {
+exports.getBookByAuthor = async (req, res) => {
     try {
         const { authorname } = req.query;
         const result = await pool.query('SELECT * FROM book WHERE authorname = $1', [req.params.authorname]);
@@ -88,7 +88,7 @@ exports.getBooksByAuthor = async (req, res) => {
     }
 };
 
-exports.getBooksByLanguage = async (req, res) => {
+exports.getBookByLanguage = async (req, res) => {
     try {
         const { authorname } = req.query;
         const result = await pool.query('SELECT * FROM book WHERE booklanguage = $1', [req.params.booklanguage]);
