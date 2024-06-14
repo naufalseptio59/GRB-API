@@ -139,7 +139,7 @@ exports.updateWishlist = async (req, res) => {
     try {
         const { wishlistid, customername, booktitle } = req.body;
         const result = await pool.query(
-            'UPDATE wishlist SET customername = $2, booktitle = $3 WHERE wishlistid = $1 RETURNING *',
+            'UPDATE wishlist SET wishlistid = $1, customername = $2, booktitle = $3 WHERE wishlistid = $4 RETURNING *',
             [wishlistid, customername, booktitle, req.params.wishlistid]
         );
         if (result.rowCount === 0) {
